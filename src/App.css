@@ -9,3 +9,7 @@ h1 {
   text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3),
     0px -4px 10px rgba(255, 255, 255, 1);
 }
+
+.card-height {
+  height: 700px;
+}

@@ -18,3 +18,21 @@ export const LAUNCHES_QUERY: TypedDocumentNode<TLaunchesQuery> = gql`
     }
   }
 `;
+
+export const LAUNCHES_QUERY_GUEST: TypedDocumentNode<TLaunchesQuery> = gql`
+query LaunchesGuest {
+  launches(limit: 50) {
+    id
+    mission_name
+    launch_year
+    rocket {
+      rocket {
+        name
+        mass {
+          kg
+        }
+      }
+    }
+  }
+}
+`;
