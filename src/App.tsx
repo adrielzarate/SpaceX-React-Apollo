@@ -12,6 +12,7 @@ import { TIdToken, TLaunches, TRole } from './Types/TLaunches';
 import Chart from './components/chart';
 import Details from './components/details';
 import { queries } from './utils/roleQuery';
+import { ROLE_ADMIN } from './utils/roles';
 
 const decodedIdToken: TIdToken = {
   'iss': 'http://my-domain.auth0.com',
@@ -53,7 +54,6 @@ export default function App() {
 
   return (
     <Suspense fallback={<ProgressSpinner />}>
-
       <div className="grid">
         <div className="col-6">
           <h1 className="text-900 font-bold text-5xl m-4">SpaceX Launches</h1>
@@ -84,7 +84,7 @@ export default function App() {
                 onChange={onMultiSelectChange}
                 virtualScrollerOptions={{
                   itemSize: STEP,
-                  lazy: true,
+                  lazy: (role === ROLE_ADMIN),
                   onLazyLoad: onLazyLoad
                 }}
                 options={data.launches}
